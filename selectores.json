@@ -1,0 +1,43 @@
+{
+  "caja_texto": {
+    "xpaths": [
+      "//div[@role='dialog']//div[@role='textbox' and @contenteditable='true']",
+      "//div[@data-lexical-editor='true']",
+      "//div[@role='dialog']//p[contains(@class,'xdj266r')]/parent::div",
+      "//div[@role='presentation']//div[@role='textbox']"
+    ],
+    "css": [
+      "div[role='dialog'] div[role='textbox'][contenteditable='true']",
+      "div[data-lexical-editor='true']"
+    ],
+    "js": "var dialog = document.querySelector('div[role=\"dialog\"], div[role=\"presentation\"]'); if (!dialog) return null; var le = dialog.querySelector('div[data-lexical-editor=\"true\"]'); if (le && le.offsetParent !== null) return le; var tb = dialog.querySelector('div[role=\"textbox\"][contenteditable=\"true\"]'); if (tb && tb.offsetParent !== null) return tb; var ce = document.querySelectorAll('div[contenteditable=\"true\"]'); for (var c of ce) { if (c.offsetParent !== null && c.offsetHeight > 20) return c; } return null;"
+  },
+  "boton_foto": {
+    "xpaths": [
+      "//div[@role='dialog']//div[translate(@aria-label, 'FOTOVIDEPH', 'fotovideph')='foto/video']",
+      "//div[@role='dialog']//div[contains(translate(@aria-label, 'FOTO', 'foto'), 'foto')]",
+      "//div[@role='dialog']//div[contains(translate(@aria-label, 'PHOTO', 'photo'), 'photo')]",
+      "//div[@role='dialog']//i[contains(@data-visualcompletion, 'css-img')]/ancestor::div[@role='button']"
+    ],
+    "css": [
+      "div[role='dialog'] div[aria-label*='oto'][role='button']",
+      "div[role='dialog'] div[aria-label*='hoto'][role='button']"
+    ],
+    "js": "var dialog = document.querySelector('div[role=\"dialog\"]'); if (!dialog) return null; var keywords = ['foto', 'photo', 'video', 'imagen', 'image', 'picture']; var buttons = dialog.querySelectorAll('div[role=\"button\"], div[tabindex=\"0\"]'); for (var b of buttons) { var label = (b.getAttribute('aria-label') || '').toLowerCase(); for (var kw of keywords) { if (label.includes(kw) && b.offsetParent !== null) return b; } } return null;"
+  },
+  "sesion_ok": {
+    "xpaths": [
+      "//div[@role='navigation']//a[@aria-label='Facebook']",
+      "//div[@data-pagelet='LeftRail']",
+      "//div[@role='feed']",
+      "//div[@role='banner']//svg[contains(@aria-label, 'Facebook')]",
+      "//div[@aria-label='Menú de tu cuenta' or contains(@aria-label, 'Account')]"
+    ],
+    "css": [
+      "div[role='navigation'] a[aria-label='Facebook']",
+      "div[data-pagelet='LeftRail']",
+      "div[role='banner'] svg"
+    ],
+    "js": "if (document.cookie.includes('c_user=')) return document.body; var accMenu = document.querySelector('div[aria-label*=\"cuenta\" i], div[aria-label*=\"Account\" i]'); if (accMenu && accMenu.offsetParent !== null) return document.body; return null;"
+  }
+}
