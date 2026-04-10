@@ -1,0 +1,6 @@
+{
+  "version": "16.4.6",
+  "url_descarga": "https://ejemplo.com/ChekoPRO_Setup.exe",
+  "changelog": "🎁 ChekoPRO v16.4.6 — Primera versión estable\n\n• Sistema anti-detección con undetected_chromedriver\n• Multi-cuenta con perfiles aislados\n• Batch seguro+ con comentarios diferidos\n• Gestión de cookies y sesiones persistentes\n• Sistema de licencias RSA con hardware binding\n• Warmup configurable\n• Scheduler de publicaciones programadas\n• Detección de grupos muertos\n• Reportes CSV por ronda",
+  "forzar": false
+}
